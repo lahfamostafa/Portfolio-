@@ -18,6 +18,8 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   function validate(state: FormState) {
     const next: Partial<FormState> = {};
@@ -29,14 +31,34 @@ export default function Contact() {
     return next;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const next = validate(form);
     setErrors(next);
-    if (Object.keys(next).length === 0) {
+    setSubmitted(false);
+    setSubmissionError("");
+    if (Object.keys(next).length > 0) return;
+
+    setIsSending(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result: { error?: string } = await response.json();
+
+      if (!response.ok) {
+        setSubmissionError(result.error ?? "L'envoi du message a échoué.");
+        return;
+      }
+
       setSubmitted(true);
       setForm(initialState);
-      setTimeout(() => setSubmitted(false), 4000);
+    } catch {
+      setSubmissionError("Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.");
+    } finally {
+      setIsSending(false);
     }
   }
 
@@ -64,7 +86,7 @@ export default function Contact() {
           className="space-y-4 lg:col-span-2"
         >
           {[
-            { icon: Mail, label: "Email", value: "contact@mostafalahfa.dev" },
+            { icon: Mail, label: "Email", value: "lahfa.mostafa1@gmail.com" },
             { icon: Phone, label: "Téléphone", value: "Sur demande" },
             { icon: MapPin, label: "Localisation", value: "Maroc — Remote" },
           ].map((info) => (
@@ -97,6 +119,8 @@ export default function Contact() {
               id="name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
+              maxLength={120}
+              required
               className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#2563EB]"
               placeholder="Votre nom"
             />
@@ -109,8 +133,11 @@ export default function Contact() {
             </label>
             <input
               id="email"
+              type="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
+              maxLength={254}
+              required
               className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#2563EB]"
               placeholder="vous@exemple.com"
             />
@@ -126,25 +153,38 @@ export default function Contact() {
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
+              maxLength={5000}
+              required
               className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-[#2563EB]"
               placeholder="Décrivez votre projet..."
             />
             {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
           </div>
 
-          <MagneticButton cursorText="Envoyer" className="w-full justify-center">
+          <MagneticButton
+            type="submit"
+            disabled={isSending}
+            cursorText="Envoyer"
+            className="w-full justify-center"
+          >
             <span className="flex items-center gap-2">
-              <Send size={16} /> Envoyer le message
+              <Send size={16} /> {isSending ? "Envoi en cours..." : "Envoyer le message"}
             </span>
           </MagneticButton>
 
+          {submissionError && (
+            <p className="text-sm text-red-400" role="alert">
+              {submissionError}
+            </p>
+          )}
           {submitted && (
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 text-sm text-[#06B6D4]"
+              role="status"
             >
-              <CheckCircle2 size={16} /> Message envoyé avec succès.
+              <CheckCircle2 size={16} /> Votre message a bien été envoyé.
             </motion.div>
           )}
         </motion.form>

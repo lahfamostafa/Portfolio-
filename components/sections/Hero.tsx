@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -11,7 +11,11 @@ const ParticlesCanvas = dynamic(() => import("@/components/ui/ParticlesCanvas"),
   ssr: false,
 });
 
-const ROLES = ["Développeur Full Stack", "Laravel & React", "UI/UX Enthusiast"];
+const ROLES = [
+  "DÃ©veloppeur Full Stack",
+  "PHP & Laravel",
+  "Spring Boot (en cours)",
+];
 
 function useTypedText(words: string[]) {
   const [display, setDisplay] = useState("");
@@ -43,7 +47,7 @@ function useTypedText(words: string[]) {
   return display;
 }
 
-const TECH_ICONS = ["React", "Next.js", "TS", "Laravel", "Tailwind", "Node"];
+const TECH_ICONS = ["HTML", "CSS", "JavaScript", "Java", "Laravel", "Docker"];
 
 export default function Hero() {
   const typed = useTypedText(ROLES);
@@ -96,9 +100,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.55 }}
             className="mt-6 max-w-md text-[#94A3B8]"
           >
-            Je conçois et développe des expériences web rapides, élégantes et
-            robustes — du backend Laravel aux interfaces React les plus
-            soignées.
+            Je conÃ§ois et dÃ©veloppe des expÃ©riences web rapides, Ã©lÃ©gantes et
+            robustes â€” du backend PHP/Laravel aux interfaces crÃ©Ã©es avec
+            HTML, CSS et JavaScript.
           </motion.p>
 
           <motion.div
@@ -110,7 +114,7 @@ export default function Hero() {
             <MagneticButton href="#projects" cursorText="Voir">
               Voir mes projets
             </MagneticButton>
-            <MagneticButton href="#contact" variant="outline" cursorText="Écrire">
+            <MagneticButton href="#contact" variant="outline" cursorText="Ã‰crire">
               Me contacter
             </MagneticButton>
           </motion.div>
@@ -121,10 +125,10 @@ export default function Hero() {
             transition={{ delay: 1 }}
             className="mt-10 flex items-center gap-5 text-[#94A3B8]"
           >
-            <a href="https://github.com/mostafalahfa" data-cursor className="hover:text-white">
+            <a href="https://github.com/lahfamostafa" target="_blank" rel="noopener noreferrer" data-cursor className="hover:text-white">
               <Github size={20} />
             </a>
-            <a href="https://linkedin.com/in/mostafalahfa" data-cursor className="hover:text-white">
+            <a href="https://linkedin.com/in/mostafalahfa" target="_blank" rel="noopener noreferrer" data-cursor className="hover:text-white">
               <Linkedin size={20} />
             </a>
           </motion.div>
@@ -190,3 +194,4 @@ export default function Hero() {
     </section>
   );
 }
+

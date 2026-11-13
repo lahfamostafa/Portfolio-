@@ -9,160 +9,172 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIALS = [
-  { label: "GitHub", href: "https://github.com/mostafalahfa" },
+  { label: "GitHub", href: "https://github.com/lahfamostafa" },
   { label: "LinkedIn", href: "https://linkedin.com/in/mostafalahfa" },
-  { label: "Twitter", href: "https://twitter.com/mostafalahfa" },
+  { label: "Instagram", href: "https://instagram.com/mostafa._.lh_48" },
 ];
 
 export const SKILL_CATEGORIES = [
   {
     id: "frontend",
     title: "Frontend",
-    description: "Interfaces modernes, performantes et animées.",
-    skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Framer Motion / GSAP", level: 85 },
-    ],
+    description: "Technologies de développement frontend.",
+    skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap"],
   },
   {
     id: "backend",
     title: "Backend",
-    description: "APIs robustes et architectures scalables.",
+    description: "Langages et frameworks backend.",
     skills: [
-      { name: "Node.js / Express", level: 88 },
-      { name: "PHP / Laravel", level: 90 },
-      { name: "REST / GraphQL", level: 85 },
-      { name: "Authentification & sécurité", level: 82 },
+      { name: "Java" },
+      { name: "C" },
+      { name: "PHP" },
+      { name: "Laravel" },
+      { name: "Spring Boot", learning: true },
     ],
   },
   {
     id: "database",
-    title: "Database",
-    description: "Modélisation et optimisation des données.",
-    skills: [
-      { name: "MySQL", level: 90 },
-      { name: "PostgreSQL", level: 85 },
-      { name: "Redis", level: 75 },
-      { name: "Design de schémas", level: 88 },
-    ],
+    title: "Bases de données",
+    description: "Systèmes de gestion de bases de données.",
+    skills: ["MySQL", "PostgreSQL" ,"SQL Server"],
   },
   {
     id: "devops",
-    title: "DevOps",
-    description: "Déploiement, conteneurisation et monitoring.",
-    skills: [
-      { name: "Docker", level: 82 },
-      { name: "AWS", level: 75 },
-      { name: "CI/CD", level: 80 },
-      { name: "Linux", level: 85 },
-    ],
+    title: "Outils & conception",
+    description: "Outils de conception, de développement et d'infrastructure.",
+    skills: ["UML", "AWS", "Linux", "Docker", "Postman", "Figma"],
   },
 ];
 
 export const TECHNOLOGIES = [
-  "HTML", "CSS", "JavaScript", "PHP", "Laravel",
-  "React", "Tailwind", "Bootstrap", "Node.js",
-  "MySQL", "Git", "GitHub", "Linux", "AWS",
-  "Figma", "Postman",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Java",
+  "Spring Boot",
+  "C",
+  "MySQL",
+  "PostgreSQL",
+  "UML",
+  "Tailwind CSS",
+  "Bootstrap",
+  "PHP",
+  "Laravel",
+  "AWS",
+  "Linux",
+  "Docker",
+  "Postman",
+  "Figma",
 ];
 
 export const EXPERIENCE = [
   {
-    year: "2024 — Présent",
-    role: "Développeur Full Stack Senior",
-    company: "Freelance",
+    year: "Mai — Juillet 2026",
+    role: "Stagiaire Développeur",
+    company: "Université Al Akhawayn — DSI",
     description:
-      "Conception et développement d'applications web sur mesure pour des clients internationaux, de l'architecture backend à l'interface finale.",
+      "Développement d’un système automatisé de génération de diplômes PDF à partir des données extraites des CIN par OCR. Intégration du traitement OCR avec un backend Laravel/MySQL via des API REST et contribution à l’optimisation des performances.",
+    technologies: [
+      "Laravel",
+      "PHP",
+      "Python",
+      "OpenCV",
+      "Tesseract",
+      "MySQL",
+      "REST API",
+      "PDF",
+      "Tailwind CSS",
+    ],
   },
   {
-    year: "2022 — 2024",
-    role: "Développeur Full Stack",
-    company: "Agence Digitale",
+    year: "Juillet 2024",
+    role: "Stagiaire Développeur",
+    company: "AXA Assurance",
     description:
-      "Développement de plateformes e-commerce et d'outils internes avec Laravel, React et des architectures API REST.",
-  },
-  {
-    year: "2020 — 2022",
-    role: "Développeur Web",
-    company: "Studio Web",
-    description:
-      "Intégration front-end avancée et développement de sites vitrines et applications métier.",
-  },
-  {
-    year: "2019 — 2020",
-    role: "Développeur Junior",
-    company: "Premiers projets",
-    description:
-      "Apprentissage intensif du développement web moderne, premiers projets clients et contributions open-source.",
+      "Participation à la maintenance et au développement de modules internes. Collaboration avec l’équipe IT pour la mise à jour des bases de données et l’automatisation de tâches bureautiques. Développement d’une application visant à simplifier la navigation entre les différents sites utilisés par les usagers de la préfecture.",
+    technologies: [
+      "Développement web",
+      "Bases de données",
+      "Automatisation",
+    ],
   },
 ];
 
 export const SERVICES = [
   {
-    title: "Développement Web",
-    description: "Sites et applications web rapides, sécurisés et évolutifs.",
+    title: "Développement Web Full Stack",
+    description:
+      "Création de sites et d’applications web fonctionnels, du frontend au backend.",
   },
   {
-    title: "Applications Laravel",
-    description: "Backends robustes et applications métier sur mesure.",
+    title: "Développement Laravel",
+    description:
+      "Développement d’applications web avec Laravel, PHP et des bases de données relationnelles.",
   },
   {
-    title: "REST API",
-    description: "Conception et documentation d'APIs claires et performantes.",
+    title: "Développement Java & Spring Boot",
+    description:
+      "Création de services backend et d’applications Java avec Spring Boot.",
   },
   {
-    title: "UI/UX Design",
-    description: "Interfaces soignées, pensées pour l'expérience utilisateur.",
+    title: "Conception d’API REST",
+    description:
+      "Création d’API REST pour connecter les applications et gérer les échanges de données.",
   },
   {
-    title: "Optimisation",
-    description: "Amélioration des performances et du score Lighthouse.",
+    title: "Gestion de bases de données",
+    description:
+      "Conception de modèles de données et intégration avec PostgreSQL, MySQL ou SQLite.",
   },
   {
-    title: "SEO",
-    description: "Structuration technique pour un meilleur référencement.",
+    title: "Interfaces Web Responsive",
+    description:
+      "Création d’interfaces adaptées aux ordinateurs, tablettes et smartphones avec des technologies web modernes.",
   },
   {
-    title: "Maintenance",
-    description: "Suivi, corrections et évolutions continues des projets.",
+    title: "Automatisation de Documents",
+    description:
+      "Développement de solutions pour extraire des données et générer automatiquement des documents PDF.",
   },
   {
-    title: "Consulting",
-    description: "Accompagnement technique et choix d'architecture.",
+    title: "Intégration et Gestion de Projets",
+    description:
+      "Organisation du code, gestion des versions avec Git et intégration des différentes parties d’une application.",
   },
+
 ];
 
 export const PROJECTS = [
   {
-    title: "Nova Commerce",
-    description: "Plateforme e-commerce headless avec paiements et gestion de stock en temps réel.",
+    title: "Easymatch",
+    description: "Application web Laravel pour la réservation de terrains sportifs, la gestion des matchs et la communication entre joueurs et gestionnaires.",
     tech: ["Next.js", "Laravel", "PostgreSQL", "Tailwind"],
-    github: "https://github.com/mostafalahfa",
+    image: "Fil-rouge.png",
+    github: "https://github.com/lahfamostafa/Fil-rouge",
     demo: "#",
   },
   {
-    title: "Pulse Dashboard",
-    description: "Tableau de bord analytique temps réel avec visualisation de données avancée.",
-    tech: ["React", "Node.js", "Redis", "Chart.js"],
-    github: "https://github.com/mostafalahfa",
-    demo: "#",
+    title: "OCR CIN Reader to Diploma Writer",
+    description: "Un projet que tu as décrit dans nos échanges : extraction d’informations depuis une CIN et génération automatisée de diplômes PDF. Il pourra être présenté avec son architecture et les fonctionnalités réellement réalisées.",
+    tech: ["Laravel", "OpenCV", "Tesseract", "MySQL", "API REST"],
+    image: "Stage.png",
+    github: "https://github.com/lahfamostafa/Stage",
   },
   {
-    title: "Orbit CRM",
-    description: "Outil de gestion de la relation client pensé pour les petites équipes.",
+    title: "Minerva",
+    description: "Le dépôt public contient une application PHP avec des répertoires pour l’application, la configuration et la base de données. Je préfère vérifier sa fonction exacte avant de rédiger une description définitive.",
     tech: ["Laravel", "MySQL", "Alpine.js"],
-    github: "https://github.com/mostafalahfa",
-    demo: "#",
+    image: "Minerva.png",
+    github: "https://github.com/lahfamostafa/Minerva",
   },
   {
-    title: "Aether Booking",
-    description: "Système de réservation modulaire avec API REST publique.",
-    tech: ["Next.js", "Express", "PostgreSQL"],
-    github: "https://github.com/mostafalahfa",
-    demo: "#",
+    title: "EasyColoc",
+    description: "Application web de gestion de colocations permettant de gérer les membres, les invitations, les dépenses communes et la répartition des soldes.",
+    tech: ["Laravel", "PHP", "Blade", "Tailwind", "Alpine.js" , "SQLite"],
+    image: "soutenance-croise-EasyColoc.png",
+    github: "https://github.com/lahfamostafa/soutenance-croise-EasyColoc",
   },
 ];
 
-export const GITHUB_USERNAME = "mostafalahfa";
+export const GITHUB_USERNAME = "lahfamostafa";

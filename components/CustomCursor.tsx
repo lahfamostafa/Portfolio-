@@ -13,7 +13,7 @@ export default function CustomCursor() {
   const ringX = useSpring(cursorX, { damping: 25, stiffness: 300, mass: 0.5 });
   const ringY = useSpring(cursorY, { damping: 25, stiffness: 300, mass: 0.5 });
 
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const touchCapable = window.matchMedia("(hover: none)").matches;

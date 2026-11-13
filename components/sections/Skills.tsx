@@ -24,7 +24,7 @@ export default function Skills() {
       >
         <p className="font-mono text-sm tracking-widest text-[#06B6D4]">Compétences</p>
         <h2 className="mt-2 font-display text-4xl font-bold text-white sm:text-5xl">
-          Ce que je maîtrise
+          Mes compétences
         </h2>
       </motion.div>
 
@@ -52,23 +52,19 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
-                    <div key={skill.name}>
-                      <div className="mb-1.5 flex justify-between text-xs">
-                        <span className="text-white">{skill.name}</span>
-                        <span className="text-[#94A3B8]">{skill.level}%</span>
-                      </div>
-                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/5">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.1, ease: "easeOut" }}
-                          className="h-full rounded-full bg-linear-to-r from-[#2563EB] via-[#7C3AED] to-[#06B6D4]"
-                        />
-                      </div>
-                    </div>
+                    <span
+                      key={typeof skill === "string" ? skill : skill.name}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white"
+                    >
+                      {typeof skill === "string" ? skill : skill.name}
+                      {typeof skill !== "string" && skill.learning && (
+                        <span className="text-xs text-[#06B6D4]">
+                          En cours
+                        </span>
+                      )}
+                    </span>
                   ))}
                 </div>
               </TiltCard>

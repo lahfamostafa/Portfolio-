@@ -9,6 +9,8 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
   cursorText?: string;
   variant?: "primary" | "outline";
 }
@@ -18,6 +20,8 @@ export default function MagneticButton({
   className,
   onClick,
   href,
+  type = "submit",
+  disabled = false,
   cursorText = "View",
   variant = "primary",
 }: MagneticButtonProps) {
@@ -66,14 +70,20 @@ export default function MagneticButton({
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} className="inline-block">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className={`inline-block ${disabled ? "pointer-events-none opacity-60" : ""}`}
+      >
         {Content}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className="inline-block">
+    <button type={type} onClick={onClick} disabled={disabled} className="inline-block">
       {Content}
     </button>
   );

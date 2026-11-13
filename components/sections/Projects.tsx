@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { PROJECTS } from "@/constants/data";
@@ -32,10 +33,22 @@ export default function Projects() {
           >
             <TiltCard intensity={5} className="group h-full overflow-hidden">
               <div className="relative flex h-48 items-center justify-center overflow-hidden bg-linear-to-br from-[#0F172A] to-[#050816]">
-                <div className="absolute inset-0 bg-linear-to-br from-[#2563EB]/20 via-transparent to-[#7C3AED]/20 transition-transform duration-500 group-hover:scale-110" />
-                <span className="font-display text-3xl text-white/10 transition-transform duration-500 group-hover:scale-105">
-                  {project.title}
-                </span>
+                {project.image ? (
+                  <Image
+                    src={`/images/${project.image}`}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-linear-to-br from-[#2563EB]/20 via-transparent to-[#7C3AED]/20 transition-transform duration-500 group-hover:scale-110" />
+                    <span className="font-display text-3xl text-white/10 transition-transform duration-500 group-hover:scale-105">
+                      {project.title}
+                    </span>
+                  </>
+                )}
               </div>
 
               <div className="p-7">
@@ -60,6 +73,8 @@ export default function Projects() {
                 <div className="mt-6 flex items-center gap-5">
                   <a
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     data-cursor
                     data-cursor-text="Code"
                     className="flex items-center gap-1.5 text-sm text-[#94A3B8] transition-colors hover:text-white"
@@ -68,6 +83,8 @@ export default function Projects() {
                   </a>
                   <a
                     href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     data-cursor
                     data-cursor-text="Demo"
                     className="flex items-center gap-1.5 text-sm text-[#94A3B8] transition-colors hover:text-white"

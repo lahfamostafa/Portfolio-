@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Instagram, ArrowUp } from "lucide-react";
 import { NAV_LINKS, SOCIALS } from "@/constants/data";
 
-const ICONS = { GitHub: Github, LinkedIn: Linkedin, Twitter: Twitter };
+const ICONS = { GitHub: Github, LinkedIn: Linkedin, Instagram: Instagram };
 
 export default function Footer() {
   return (
@@ -25,6 +25,8 @@ export default function Footer() {
 
         <a
           href="#contact"
+          target="_blank"
+          rel="noopener noreferrer"
           data-cursor
           data-cursor-text="Écrire"
           className="rounded-full bg-linear-to-r from-[#2563EB] to-[#7C3AED] px-8 py-3.5 text-sm font-medium text-white glow-shadow"
@@ -34,7 +36,7 @@ export default function Footer() {
       </motion.div>
 
       <div className="mt-14 flex flex-col items-center gap-8 border-t border-white/5 pt-10 sm:flex-row sm:justify-between">
-        <a href="#hero" className="font-display text-lg font-semibold text-white">
+        <a href="#hero" target="_blank" rel="noopener noreferrer" className="font-display text-lg font-semibold text-white">
           ML<span className="text-[#2563EB]">.</span>
         </a>
 
@@ -43,6 +45,8 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs text-[#94A3B8] hover:text-white"
             >
               {link.label}
@@ -57,6 +61,8 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-cursor
                 className="text-[#94A3B8] hover:text-white"
                 aria-label={social.label}
@@ -70,7 +76,7 @@ export default function Footer() {
 
       <div className="mt-8 flex flex-col items-center justify-between gap-4 text-xs text-[#94A3B8] sm:flex-row">
         <p>© {new Date().getFullYear()} Mostafa Lahfa. Tous droits réservés.</p>
-        <a href="#hero" data-cursor className="flex items-center gap-1.5 hover:text-white">
+        <a href="#hero" target="_blank" rel="noopener noreferrer" data-cursor className="flex items-center gap-1.5 hover:text-white">
           Retour en haut <ArrowUp size={12} />
         </a>
       </div>
